@@ -8,6 +8,8 @@ target 'KeepSafe' do
   # Pods for KeepSafe
 	pod 'PureLayout'
 	pod 'KeychainAccess'
+	pod 'Alamofire'
+	pod 'AlamofireImage'
 
   target 'KeepSafeTests' do
     inherit! :search_paths

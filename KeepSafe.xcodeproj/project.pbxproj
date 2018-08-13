@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76571362212218D6004C5DEA /* DisplaysSensitiveDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76571361212218D6004C5DEA /* DisplaysSensitiveDataProtocol.swift */; };
 		76931C0321211B1000C36167 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76931C0221211B1000C36167 /* AppDelegate.swift */; };
 		76931C0521211B1000C36167 /* PINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76931C0421211B1000C36167 /* PINViewController.swift */; };
 		76931C0821211B1000C36167 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76931C0621211B1000C36167 /* Main.storyboard */; };
@@ -14,6 +15,10 @@
 		76931C0D21211B1100C36167 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76931C0B21211B1100C36167 /* LaunchScreen.storyboard */; };
 		76931C1821211B1100C36167 /* KeepSafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76931C1721211B1100C36167 /* KeepSafeTests.swift */; };
 		76931C23212120B600C36167 /* PINEntryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76931C22212120B600C36167 /* PINEntryManager.swift */; };
+		76E1A26821213EF3004066F5 /* PhotoLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1A26721213EF3004066F5 /* PhotoLibraryViewController.swift */; };
+		76E1A26A21213F7E004066F5 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1A26921213F7E004066F5 /* ImageManager.swift */; };
+		76E1A26C21214388004066F5 /* ImageURLListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1A26B21214388004066F5 /* ImageURLListManager.swift */; };
+		76E1A26E212147BE004066F5 /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1A26D212147BE004066F5 /* ImageCollectionCell.swift */; };
 		D85FBDB4F6FF57E79719AAD6 /* Pods_KeepSafeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE907052BAB9542BBB7811D /* Pods_KeepSafeTests.framework */; };
 		E1BDE2ED9747EC5CD2DB929A /* Pods_KeepSafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6DDDC5079371940B74E4C81 /* Pods_KeepSafe.framework */; };
 /* End PBXBuildFile section */
@@ -32,6 +37,7 @@
 		0F4FC6AE09E05496496BD7EA /* Pods-KeepSafeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeepSafeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeepSafeTests/Pods-KeepSafeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0FE907052BAB9542BBB7811D /* Pods_KeepSafeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeepSafeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5687C7E93EA4D5C21C671592 /* Pods-KeepSafeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeepSafeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeepSafeTests/Pods-KeepSafeTests.release.xcconfig"; sourceTree = "<group>"; };
+		76571361212218D6004C5DEA /* DisplaysSensitiveDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaysSensitiveDataProtocol.swift; sourceTree = "<group>"; };
 		76931BFF21211B1000C36167 /* KeepSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76931C0221211B1000C36167 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76931C0421211B1000C36167 /* PINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +49,10 @@
 		76931C1721211B1100C36167 /* KeepSafeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepSafeTests.swift; sourceTree = "<group>"; };
 		76931C1921211B1100C36167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76931C22212120B600C36167 /* PINEntryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINEntryManager.swift; sourceTree = "<group>"; };
+		76E1A26721213EF3004066F5 /* PhotoLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryViewController.swift; sourceTree = "<group>"; };
+		76E1A26921213F7E004066F5 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		76E1A26B21214388004066F5 /* ImageURLListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURLListManager.swift; sourceTree = "<group>"; };
+		76E1A26D212147BE004066F5 /* ImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
 		A6DDDC5079371940B74E4C81 /* Pods_KeepSafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeepSafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB42AA46A4FA8FE80826953 /* Pods-KeepSafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeepSafe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeepSafe/Pods-KeepSafe.debug.xcconfig"; sourceTree = "<group>"; };
 		D2569EA2099EB00A56146380 /* Pods-KeepSafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeepSafe.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeepSafe/Pods-KeepSafe.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				76931C22212120B600C36167 /* PINEntryManager.swift */,
+				76E1A26921213F7E004066F5 /* ImageManager.swift */,
+				76E1A26B21214388004066F5 /* ImageURLListManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -132,6 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				76931C0421211B1000C36167 /* PINViewController.swift */,
+				76E1A26721213EF3004066F5 /* PhotoLibraryViewController.swift */,
+				76E1A26D212147BE004066F5 /* ImageCollectionCell.swift */,
+				76571361212218D6004C5DEA /* DisplaysSensitiveDataProtocol.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,11 +287,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-KeepSafe/Pods-KeepSafe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
 			);
@@ -358,7 +377,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76E1A26E212147BE004066F5 /* ImageCollectionCell.swift in Sources */,
+				76E1A26821213EF3004066F5 /* PhotoLibraryViewController.swift in Sources */,
+				76E1A26A21213F7E004066F5 /* ImageManager.swift in Sources */,
 				76931C23212120B600C36167 /* PINEntryManager.swift in Sources */,
+				76E1A26C21214388004066F5 /* ImageURLListManager.swift in Sources */,
+				76571362212218D6004C5DEA /* DisplaysSensitiveDataProtocol.swift in Sources */,
 				76931C0521211B1000C36167 /* PINViewController.swift in Sources */,
 				76931C0321211B1000C36167 /* AppDelegate.swift in Sources */,
 			);

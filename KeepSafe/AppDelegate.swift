@@ -9,19 +9,51 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, PINViewControllerDelegate {
 
 	var window: UIWindow?
+	
+	var pinViewController: PINViewController?
+	func makePinViewController() -> PINViewController {
+		let pinViewController = PINViewController()
+		pinViewController.delegate = self
+		return pinViewController
+	}
 
-
+	func PINAccepted() {
+		showPinView(false)
+	}
+	
+	func showPinView(_ show: Bool) {
+		if show {
+			pinViewController = makePinViewController()
+		}
+		
+		guard
+			let rootViewController = window?.rootViewController,
+			let pinViewController = pinViewController
+		else {
+			assert(false, "No view controller")
+		}
+		
+		if show {
+			rootViewController.view.addSubview(pinViewController.view)
+			rootViewController.addChildViewController(pinViewController)
+			pinViewController.view.autoPinEdgesToSuperviewEdges()
+		} else {
+			pinViewController.view.removeFromSuperview()
+			pinViewController.removeFromParentViewController()
+			self.pinViewController = nil
+		}
+	}
+	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
+		showPinView(true)
 		return true
 	}
 
 	func applicationWillResignActive(_ application: UIApplication) {
-		// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-		// Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+		showPinView(true)
 	}
 
 	func applicationDidEnterBackground(_ application: UIApplication) {

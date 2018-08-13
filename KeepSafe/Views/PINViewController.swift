@@ -15,7 +15,7 @@ protocol PINViewControllerDelegate {
 
 class PINViewController: UIViewController {
 	private let pinLabel = UILabel()
-	private var delegate: PINViewControllerDelegate?
+	var delegate: PINViewControllerDelegate?
 	private var userID: String = "user2"
 	private var pinEntryManager: PINEntryManager?
 	private var clearPINLabelOnTap = false
@@ -131,5 +131,9 @@ class PINViewController: UIViewController {
 		pinLabel.textAlignment = .center
 		
 		pinEntryManager = PINEntryManager(userID: userID)
+		
+		view.backgroundColor = .white
+		
+		setStatusLabel("Please enter PIN")
 	}
 }
