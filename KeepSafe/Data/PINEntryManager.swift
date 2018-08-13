@@ -18,14 +18,14 @@ enum PINEntryResult {
 }
 
 struct PINEntryManager {
-	let PINLength = 4
+	private let PINLength = 4
 	private let pinKeychain = Keychain(service: "com.keepsafe.pin")
 	private var userID: String
 	private var pinBuilder = ""
 	private var verifyPinBuilder = "" // Used to verify PIN on creation
 	private var verifyMode = false
 	
-	var correctPIN: String? {
+	private var correctPIN: String? {
 		if let correctPIN = pinKeychain[userID] {
 			return correctPIN
 		}
@@ -74,7 +74,7 @@ struct PINEntryManager {
 		return .continueEntering
 	}
 	
-	mutating func clear() {
+	private mutating func clear() {
 		verifyPinBuilder = ""
 		pinBuilder = ""
 		verifyMode = false
