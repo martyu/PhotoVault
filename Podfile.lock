@@ -1,0 +1,15 @@
+PODS:
+  - KeychainAccess (3.1.0)
+  - PureLayout (3.0.2)
+
+DEPENDENCIES:
+  - KeychainAccess
+  - PureLayout
+
+SPEC CHECKSUMS:
+  KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+
+PODFILE CHECKSUM: 3b464f197e7304a243e1aee17ad29efc3dbbb953
+
+COCOAPODS: 1.4.0
