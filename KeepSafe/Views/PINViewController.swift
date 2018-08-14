@@ -16,7 +16,7 @@ protocol PINViewControllerDelegate {
 class PINViewController: UIViewController {
 	private let pinLabel = UILabel()
 	var delegate: PINViewControllerDelegate?
-	private var userID: String = "user2"
+	private var userID: String = "user"
 	private var pinEntryManager: PINEntryManager?
 	private var clearPINLabelOnTap = false
 	private let stackRowContainer = UIStackView()
