@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PINViewControllerDelegate
 			let pinViewController = pinViewController
 		else {
 			assert(false, "No view controller")
+			return
 		}
 		
 		if show {

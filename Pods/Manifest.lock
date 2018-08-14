@@ -2,21 +2,24 @@ PODS:
   - Alamofire (4.7.0)
   - AlamofireImage (3.3.0):
     - Alamofire (~> 4.5)
+  - Differ (1.0.3)
   - KeychainAccess (3.1.0)
   - PureLayout (3.0.2)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - Differ
   - KeychainAccess
   - PureLayout
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
   AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
+  Differ: 0c220ac75542f5f17f91b1303b85bf07d871ecd7
   KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
 
-PODFILE CHECKSUM: 9479bc5630a5e7ba27384e3748e9731b1c94fa0c
+PODFILE CHECKSUM: f71ddbb6465f7e10ed14fe75adeb954eaa790f06
 
 COCOAPODS: 1.4.0

@@ -10,6 +10,7 @@ target 'KeepSafe' do
 	pod 'KeychainAccess'
 	pod 'Alamofire'
 	pod 'AlamofireImage'
+	pod 'Differ'
 
   target 'KeepSafeTests' do
     inherit! :search_paths

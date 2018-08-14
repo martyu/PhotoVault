@@ -9,49 +9,14 @@
 import Foundation
 import Alamofire
 
-protocol ImageURLListManagerDelegate {
-	func imageURLListUpdated(_: ImageURLListManager)
-}
-
 class ImageURLListManager {
-	private var imageURLs = [URL]()
 	private var lastFetchedPage = 0
-	private var delegate: ImageURLListManagerDelegate
-	var count: Int { return imageURLs.count }
-	
-	init(seed: Int, delegate: ImageURLListManagerDelegate) {
-		self.delegate = delegate
-		DispatchQueue.global(qos: .background).async { [weak self] in
-			guard let strongSelf = self else { return }
-			func seeder() {
-				if strongSelf.imageURLs.count < seed {
-					strongSelf.fetchNextPage() { error in
-						seeder()
-					}
-				} else {
-					delegate.imageURLListUpdated(strongSelf)
-				}
-			}
-			
-			seeder()
-		}
-	}
-	
+	private let requestQueue = OperationQueue()
 	private func apiURL(page: Int) -> URL? {
 		return URL(string: "https://lit-earth-91645.herokuapp.com/images/\(page)")
 	}
 	
-	func urlForIndex(_ index: Int, completion: @escaping (URL, Error?) -> ()) {
-		if index < imageURLs.count {
-			completion(imageURLs[index], nil)
-		} else {
-			fetchNextPage { [weak self] error in
-				self?.urlForIndex(index, completion: completion)
-			}
-		}
-	}
-	
-	private func fetchNextPage(completion: @escaping (Error?) -> ()) {
+	func fetchNextPage(completion: @escaping ([URL]?, Error?) -> ()) {
 		lastFetchedPage += 1
 		if let pageAPIURL = apiURL(page: lastFetchedPage) {
 			Alamofire.request(pageAPIURL).responseJSON { [weak self] json in
@@ -59,12 +24,10 @@ class ImageURLListManager {
 					do {
 						guard let strongSelf = self else { return }
 						strongSelf.lastFetchedPage += 1
-						let imageURLs = try JSONDecoder().decode([String].self, from: data)
-						strongSelf.imageURLs += imageURLs.compactMap { URL(string: $0) }
-						strongSelf.delegate.imageURLListUpdated(strongSelf)
-						completion(nil)
+						let imageURLs = try JSONDecoder().decode([URL].self, from: data)
+						completion(imageURLs, nil)
 					} catch {
-						completion(error)
+						completion(nil, error)
 					}
 				}
 			}

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76259AFB212289D7004FE3EB /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76259AFA212289D7004FE3EB /* ImageCache.swift */; };
+		76259AFE2122A6A0004FE3EB /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76259AFD2122A6A0004FE3EB /* ImageExtensions.swift */; };
 		76571362212218D6004C5DEA /* DisplaysSensitiveDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76571361212218D6004C5DEA /* DisplaysSensitiveDataProtocol.swift */; };
 		76931C0321211B1000C36167 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76931C0221211B1000C36167 /* AppDelegate.swift */; };
 		76931C0521211B1000C36167 /* PINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76931C0421211B1000C36167 /* PINViewController.swift */; };
@@ -37,6 +39,8 @@
 		0F4FC6AE09E05496496BD7EA /* Pods-KeepSafeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeepSafeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeepSafeTests/Pods-KeepSafeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0FE907052BAB9542BBB7811D /* Pods_KeepSafeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeepSafeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5687C7E93EA4D5C21C671592 /* Pods-KeepSafeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeepSafeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeepSafeTests/Pods-KeepSafeTests.release.xcconfig"; sourceTree = "<group>"; };
+		76259AFA212289D7004FE3EB /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		76259AFD2122A6A0004FE3EB /* ImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtensions.swift; sourceTree = "<group>"; };
 		76571361212218D6004C5DEA /* DisplaysSensitiveDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaysSensitiveDataProtocol.swift; sourceTree = "<group>"; };
 		76931BFF21211B1000C36167 /* KeepSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76931C0221211B1000C36167 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		76259AFC2122A68C004FE3EB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				76259AFD2122A6A0004FE3EB /* ImageExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		76931BF621211B1000C36167 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				76931C0221211B1000C36167 /* AppDelegate.swift */,
+				76259AFC2122A68C004FE3EB /* Extensions */,
 				76931C24212121CD00C36167 /* Data */,
 				76931C25212121D700C36167 /* Views */,
 				76931C0621211B1000C36167 /* Main.storyboard */,
@@ -136,6 +149,7 @@
 				76931C22212120B600C36167 /* PINEntryManager.swift */,
 				76E1A26921213F7E004066F5 /* ImageManager.swift */,
 				76E1A26B21214388004066F5 /* ImageURLListManager.swift */,
+				76259AFA212289D7004FE3EB /* ImageCache.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -289,6 +303,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-KeepSafe/Pods-KeepSafe-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Differ/Differ.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
 			);
@@ -296,6 +311,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differ.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
 			);
@@ -382,8 +398,10 @@
 				76E1A26A21213F7E004066F5 /* ImageManager.swift in Sources */,
 				76931C23212120B600C36167 /* PINEntryManager.swift in Sources */,
 				76E1A26C21214388004066F5 /* ImageURLListManager.swift in Sources */,
+				76259AFE2122A6A0004FE3EB /* ImageExtensions.swift in Sources */,
 				76571362212218D6004C5DEA /* DisplaysSensitiveDataProtocol.swift in Sources */,
 				76931C0521211B1000C36167 /* PINViewController.swift in Sources */,
+				76259AFB212289D7004FE3EB /* ImageCache.swift in Sources */,
 				76931C0321211B1000C36167 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

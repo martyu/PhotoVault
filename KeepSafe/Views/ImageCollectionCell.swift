@@ -14,31 +14,55 @@ import AlamofireImage
 
 class ImageCollectionCell: UICollectionViewCell {
 	let imageView = UIImageView()
-	var loadingURL: URL?
 	let placeholderView: UIActivityIndicatorView = {
 		let placeholderView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 		placeholderView.backgroundColor = .white
 		return placeholderView
 	}()
+	var urlToLoad: URL?
+	let imageManager = sharedImageManager
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
 		contentView.addSubview(imageView)
 		imageView.autoPinEdgesToSuperviewEdges()
-		imageView.contentMode = .scaleAspectFit
 	}
 	
 	func configure(with url: URL) {
-		loadingURL = url
-		imageView.af_setImage(withURL: url)
+		urlToLoad = url
+		imageManager.fetchImage(for: url) { [weak self] image, error in
+			guard let image = image else { return }
+			DispatchQueue.global(qos: .userInitiated).async {
+				let decodedImage = self?.decodedImage(image)
+				DispatchQueue.main.async {
+					if self?.urlToLoad == url {
+						self?.showPlaceholderView(false)
+						self?.imageView.layer.contents = decodedImage?.cgImage
+					}
+				}
+			}
+		}
+	}
+	
+	private func decodedImage(_ image: Image) -> Image? {
+		guard let newImage = image.cgImage else { return nil }
+		
+		let colorSpace = CGColorSpaceCreateDeviceRGB()
+		let context = CGContext(data: nil, width: newImage.width, height: newImage.height, bitsPerComponent: 8, bytesPerRow: newImage.width * 4, space: colorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
+		
+		context?.draw(newImage, in: CGRect(x: 0, y: 0, width: newImage.width, height: newImage.height))
+		let drawnImage = context?.makeImage()
+		
+		if let drawnImage = drawnImage {
+			return Image(cgImage: drawnImage)
+		}
+		return nil
 	}
 	
 	override func prepareForReuse() {
 		super.prepareForReuse()
-		imageView.af_cancelImageRequest()
-		imageView.image = nil
-
+		
 		showPlaceholderView(true)
 	}
 	
