@@ -27,6 +27,8 @@ class ImageCollectionCell: UICollectionViewCell {
 		
 		contentView.addSubview(imageView)
 		imageView.autoPinEdgesToSuperviewEdges()
+		imageView.contentMode = .scaleAspectFill
+		imageView.clipsToBounds = true
 	}
 	
 	func configure(with url: URL) {

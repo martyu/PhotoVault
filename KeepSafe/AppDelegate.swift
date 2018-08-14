@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PINViewControllerDelegate
 	}
 	
 	func showPinView(_ show: Bool) {
-		if show {
+		if show, pinViewController?.view.superview == nil {
 			pinViewController = makePinViewController()
 		}
 		

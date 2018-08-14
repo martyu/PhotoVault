@@ -9,6 +9,8 @@
 import Foundation
 import Alamofire
 
+let sharedImageURLListManager = ImageURLListManager()
+
 class ImageURLListManager {
 	private var lastFetchedPage = 0
 	private let requestQueue = OperationQueue()
