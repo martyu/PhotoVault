@@ -35,19 +35,13 @@ class PhotoLibraryViewController: UIViewController {
 		imageURLs += newURLs
 	}
 	
-	private lazy var imageCollectionFlowLayout: UICollectionViewFlowLayout = {
-		let imageCollectionFlowLayout = UICollectionViewFlowLayout()
-		imageCollectionFlowLayout.minimumInteritemSpacing = 0.0
-		imageCollectionFlowLayout.minimumLineSpacing = 0.0
-		return imageCollectionFlowLayout
-	}()
-	
 	private lazy var imageCollectionView: UICollectionView = {
-		let imageCollectionView = UICollectionView(frame: .zero, collectionViewLayout: imageCollectionFlowLayout)
+		let imageCollectionView = UICollectionView(frame: .zero, collectionViewLayout: gridLayout)
 		imageCollectionView.dataSource = self
 		imageCollectionView.delegate = self
 		imageCollectionView.register(ImageCollectionCell.self, forCellWithReuseIdentifier: cellID)
 		imageCollectionView.backgroundColor = .white
+		imageCollectionView.contentInsetAdjustmentBehavior = .never
 		return imageCollectionView
 	}()
 	
@@ -60,12 +54,28 @@ class PhotoLibraryViewController: UIViewController {
 }
 
 extension PhotoLibraryViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+	var fullScreenLayout: UICollectionViewFlowLayout {
+		let fullScreenLayout = UICollectionViewFlowLayout()
+		fullScreenLayout.minimumInteritemSpacing = 0.0
+		fullScreenLayout.minimumLineSpacing = 0.0
+		fullScreenLayout.scrollDirection = .horizontal
+		return fullScreenLayout
+	}
+
+	var gridLayout: UICollectionViewFlowLayout {
+		let gridLayout = UICollectionViewFlowLayout()
+		gridLayout.minimumInteritemSpacing = 0.0
+		gridLayout.minimumLineSpacing = 0.0
+		gridLayout.scrollDirection = .vertical
+		return gridLayout
+	}
+
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		guard let collectionViewLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return .zero }
 		
 		if fullscreen {
-			let width = collectionView.bounds.width// collectionView.frame.size.width - collectionView.contentInset.left - collectionView.contentInset.right + collectionViewLayout.minimumLineSpacing
-			let height = collectionView.bounds.height// collectionView.frame.size.height - collectionView.contentInset.top - collectionView.contentInset.bottom + collectionViewLayout.minimumLineSpacing
+			let width = collectionView.bounds.width
+			let height = collectionView.bounds.height
 			return CGSize(width: width, height: height)
 		}
 		
@@ -77,9 +87,6 @@ extension PhotoLibraryViewController: UICollectionViewDelegateFlowLayout, UIColl
 			) / CGFloat(itemsPerRow)
 		
 		let size = CGSize(width: edgeLength, height: edgeLength)
-		if Int(size.width) != 128 {
-			print(size)
-		}
 		return size
 	}
 
@@ -104,22 +111,21 @@ extension PhotoLibraryViewController: UICollectionViewDelegateFlowLayout, UIColl
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
 		fullscreen = !fullscreen
-		configure(collectionView: collectionView, layout: flowLayout)
-		flowLayout.invalidateLayout()
-		collectionView.reloadData()
+		configure(collectionView: collectionView, layout: fullscreen ? fullScreenLayout : gridLayout)
 		collectionView.scrollToItem(at: indexPath, at: fullscreen ? .centeredHorizontally : .centeredVertically, animated: false)
 	}
 	
 	private func configure(collectionView: UICollectionView, layout: UICollectionViewFlowLayout) {
 		if fullscreen {
-			layout.scrollDirection = .horizontal
 			collectionView.contentInset = .zero
 			collectionView.isPagingEnabled = true
 		} else {
-			layout.scrollDirection = .vertical
 			collectionView.isPagingEnabled = false
+		}
+		
+		collectionView.setCollectionViewLayout(layout, animated: true) { _ in
+			collectionView.reloadData()
 		}
 	}
 }

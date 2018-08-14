@@ -21,14 +21,21 @@ class ImageCache: NSObject, NSCacheDelegate {
 	func image(for url: URL) -> Image? {
 		// First check local cache
 		if let image = imageCache.object(forKey: url.absoluteNSString) {
+			print("loaded from cache \(url)")
 			return image
 		// Then check disk
-		} else if let imageData = imageKeychain[data: url.absoluteString] {
-			if let image = Image(data: imageData) {
-				imageCache.setObject(image, forKey: url.absoluteNSString)
-				return image
-			}
 		}
+		///TODO: This was causing a performance hit. Find faster way.
+		///Maybe keep a list of URLs that have been written to disk so we don't have to do a Keychain read to find out?
+//		else if let imageData = imageKeychain[data: url.absoluteString] {
+//			if let dataProvider = CGDataProvider(data: imageData as CFData),
+//				let cgImage = CGImage(jpegDataProviderSource: dataProvider, decode: nil, shouldInterpolate: false, intent: .defaultIntent) {
+//				let image = Image(cgImage: cgImage)
+//				imageCache.setObject(image, forKey: url.absoluteNSString)
+//				print("loaded from disk \(url)")
+//				return image
+//			}
+//		}
 		
 		return nil
 	}
@@ -37,13 +44,14 @@ class ImageCache: NSObject, NSCacheDelegate {
 		imageCache.setObject(image, forKey: url.absoluteNSString)
 	}
 	
+	///TODO: This was causing a performance hit. Find faster way.
+	///Maybe keep a list of URLs that have been written to disk so we don't have to do a Keychain read to find out?
 	func cache(_ cache: NSCache<AnyObject, AnyObject>, willEvictObject obj: Any) {
 		guard
 			let evictedImage = obj as? Image
 		else { return }
-		
 		if let urlString = evictedImage.url?.absoluteString, imageKeychain[data: urlString] == nil {
-			imageKeychain[data: urlString] = evictedImage.cgImage?.dataProvider?.data as Data?
+//			imageKeychain[data: urlString] = evictedImage.cgImage?.dataProvider?.data as Data?
 			print("evicted \(urlString)")
 		}
 	}

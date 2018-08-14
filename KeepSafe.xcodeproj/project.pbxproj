@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		76259AFB212289D7004FE3EB /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76259AFA212289D7004FE3EB /* ImageCache.swift */; };
 		76259AFE2122A6A0004FE3EB /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76259AFD2122A6A0004FE3EB /* ImageExtensions.swift */; };
-		76259B002122C793004FE3EB /* PhotoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76259AFF2122C793004FE3EB /* PhotoGalleryViewController.swift */; };
 		76571362212218D6004C5DEA /* DisplaysSensitiveDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76571361212218D6004C5DEA /* DisplaysSensitiveDataProtocol.swift */; };
 		76931C0321211B1000C36167 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76931C0221211B1000C36167 /* AppDelegate.swift */; };
 		76931C0521211B1000C36167 /* PINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76931C0421211B1000C36167 /* PINViewController.swift */; };
@@ -42,7 +41,6 @@
 		5687C7E93EA4D5C21C671592 /* Pods-KeepSafeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeepSafeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeepSafeTests/Pods-KeepSafeTests.release.xcconfig"; sourceTree = "<group>"; };
 		76259AFA212289D7004FE3EB /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		76259AFD2122A6A0004FE3EB /* ImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtensions.swift; sourceTree = "<group>"; };
-		76259AFF2122C793004FE3EB /* PhotoGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewController.swift; sourceTree = "<group>"; };
 		76571361212218D6004C5DEA /* DisplaysSensitiveDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaysSensitiveDataProtocol.swift; sourceTree = "<group>"; };
 		76931BFF21211B1000C36167 /* KeepSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76931C0221211B1000C36167 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,7 +161,6 @@
 				76E1A26721213EF3004066F5 /* PhotoLibraryViewController.swift */,
 				76E1A26D212147BE004066F5 /* ImageCollectionCell.swift */,
 				76571361212218D6004C5DEA /* DisplaysSensitiveDataProtocol.swift */,
-				76259AFF2122C793004FE3EB /* PhotoGalleryViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,7 +396,6 @@
 				76E1A26E212147BE004066F5 /* ImageCollectionCell.swift in Sources */,
 				76E1A26821213EF3004066F5 /* PhotoLibraryViewController.swift in Sources */,
 				76E1A26A21213F7E004066F5 /* ImageManager.swift in Sources */,
-				76259B002122C793004FE3EB /* PhotoGalleryViewController.swift in Sources */,
 				76931C23212120B600C36167 /* PINEntryManager.swift in Sources */,
 				76E1A26C21214388004066F5 /* ImageURLListManager.swift in Sources */,
 				76259AFE2122A6A0004FE3EB /* ImageExtensions.swift in Sources */,

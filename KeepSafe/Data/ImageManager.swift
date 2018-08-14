@@ -20,21 +20,33 @@ class ImageManager: NSObject {
 	let operationQueue: OperationQueue = {
 		let operationQueue = OperationQueue()
 		operationQueue.qualityOfService = .userInitiated
+		operationQueue.maxConcurrentOperationCount = 5
 		return operationQueue
 	}()
 	
 	func fetchImage(for url: URL, completion: @escaping (Image?, NSError?) -> ()) {
 		if let image = imageCache.image(for: url) {
-			print("loaded from cache \(url)")
 			completion(image, nil)
 		} else {
-			print("adding op \(operationQueue.operations.count) for \(url)")
-			operationQueue.addOperation(imageLoadOperation(url: url, completion: completion))
+			if checkIfImageLoadOpIsInQueue(url: url) == false {
+				print("adding op \(operationQueue.operations.count) for \(url)")
+				operationQueue.addOperation(imageLoadOperation(url: url, completion: completion))
+			} else {
+				print("op already in queue \(url)")
+			}
+			if url.absoluteString == "https://farm3.staticflickr.com/2917/14351024987_1d9abf99fa_b.jpg" {
+				print("match")
+			}
+
 		}
 	}
 	
+	private func checkIfImageLoadOpIsInQueue(url: URL) -> Bool {
+		return operationQueue.operations.contains { $0.name == url.absoluteString }
+	}
+	
 	private func imageLoadOperation(url: URL, completion: @escaping (Image?, NSError?) -> ()) -> Operation {
-		let imageLoadOp = BlockOperation { [weak self] in
+		let imageLoadOp = ImageLoadOperation { [weak self] in
 			do {
 				let data = try Data(contentsOf: url)
 				if let image = Image(data: data) {
@@ -49,8 +61,14 @@ class ImageManager: NSObject {
 				completion(nil, error as NSError)
 			}
 		}
+		imageLoadOp.name = url.absoluteString
+		
 		return imageLoadOp
 	}
+}
+
+class ImageLoadOperation: BlockOperation {
+	override var isConcurrent: Bool { return true }
 }
 
 extension URL {
