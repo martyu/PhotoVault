@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  ImageExtensions.swift
 //  KeepSafe
 //
 //  Created by Marty Ulrich on 8/13/18.

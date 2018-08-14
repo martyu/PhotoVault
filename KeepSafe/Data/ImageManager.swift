@@ -13,6 +13,8 @@ class Image: UIImage {
 	var url: URL?
 }
 
+typealias ImageFetchCompletionHandler = ((Image?, NSError?) -> ())?
+
 let sharedImageManager = ImageManager()
 
 class ImageManager: NSObject {
@@ -20,24 +22,39 @@ class ImageManager: NSObject {
 	let operationQueue: OperationQueue = {
 		let operationQueue = OperationQueue()
 		operationQueue.qualityOfService = .userInitiated
-		operationQueue.maxConcurrentOperationCount = 5
 		return operationQueue
 	}()
 	
-	func fetchImage(for url: URL, completion: @escaping (Image?, NSError?) -> ()) {
+	func prefetchImages(for urls: [URL]) {
+		urls.forEach { [weak self] url in
+			print("prefetching \(url)")
+			self?.fetchImage(for: url)
+		}
+	}
+	
+	func cancelPrefetchingImages(for urls: [URL]) {
+		urls.forEach { [weak self] url in
+			print("canceling prefetch of \(url)")
+			self?.cancelOperation(name: url.absoluteString)
+		}
+	}
+	
+	private func cancelOperation(name: String) {
+		operationQueue.operations.first { operation in
+			return operation.name == name
+		}?.cancel()
+	}
+	
+	func fetchImage(for url: URL, completion: ImageFetchCompletionHandler = nil) {
 		if let image = imageCache.image(for: url) {
-			completion(image, nil)
+			completion?(image, nil)
 		} else {
-			if checkIfImageLoadOpIsInQueue(url: url) == false {
+//			if checkIfImageLoadOpIsInQueue(url: url) == false {
 				print("adding op \(operationQueue.operations.count) for \(url)")
 				operationQueue.addOperation(imageLoadOperation(url: url, completion: completion))
-			} else {
-				print("op already in queue \(url)")
-			}
-			if url.absoluteString == "https://farm3.staticflickr.com/2917/14351024987_1d9abf99fa_b.jpg" {
-				print("match")
-			}
-
+//			} else {
+//				print("op already in queue \(url)")
+//			}
 		}
 	}
 	
@@ -45,7 +62,7 @@ class ImageManager: NSObject {
 		return operationQueue.operations.contains { $0.name == url.absoluteString }
 	}
 	
-	private func imageLoadOperation(url: URL, completion: @escaping (Image?, NSError?) -> ()) -> Operation {
+	private func imageLoadOperation(url: URL, completion: ImageFetchCompletionHandler) -> Operation {
 		let imageLoadOp = ImageLoadOperation { [weak self] in
 			do {
 				let data = try Data(contentsOf: url)
@@ -53,12 +70,12 @@ class ImageManager: NSObject {
 					image.url = url
 					self?.imageCache.set(image: image, for: url)
 					DispatchQueue.main.async {
-						completion(image, nil)
+						completion?(image, nil)
 					}
 				}
 			} catch {
 				print(error)
-				completion(nil, error as NSError)
+				completion?(nil, error as NSError)
 			}
 		}
 		imageLoadOp.name = url.absoluteString

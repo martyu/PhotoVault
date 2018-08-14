@@ -39,6 +39,7 @@ class PhotoLibraryViewController: UIViewController {
 		let imageCollectionView = UICollectionView(frame: .zero, collectionViewLayout: gridLayout)
 		imageCollectionView.dataSource = self
 		imageCollectionView.delegate = self
+		imageCollectionView.prefetchDataSource = self
 		imageCollectionView.register(ImageCollectionCell.self, forCellWithReuseIdentifier: cellID)
 		imageCollectionView.backgroundColor = .white
 		imageCollectionView.contentInsetAdjustmentBehavior = .never
@@ -130,7 +131,17 @@ extension PhotoLibraryViewController: UICollectionViewDelegateFlowLayout, UIColl
 	}
 }
 
-
+extension PhotoLibraryViewController: UICollectionViewDataSourcePrefetching {
+	func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+		let urlsToFetch = indexPaths.map { imageURLs[$0.row] }
+		sharedImageManager.prefetchImages(for: urlsToFetch)
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+		let urlsToCancel = indexPaths.map { imageURLs[$0.row] }
+		sharedImageManager.cancelPrefetchingImages(for: urlsToCancel)
+	}
+}
 
 
 
