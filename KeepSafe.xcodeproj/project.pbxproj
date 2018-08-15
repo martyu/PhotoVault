@@ -15,7 +15,6 @@
 		76931C0821211B1000C36167 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76931C0621211B1000C36167 /* Main.storyboard */; };
 		76931C0A21211B1100C36167 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76931C0921211B1100C36167 /* Assets.xcassets */; };
 		76931C0D21211B1100C36167 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76931C0B21211B1100C36167 /* LaunchScreen.storyboard */; };
-		76931C1821211B1100C36167 /* KeepSafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76931C1721211B1100C36167 /* KeepSafeTests.swift */; };
 		76931C23212120B600C36167 /* PINEntryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76931C22212120B600C36167 /* PINEntryManager.swift */; };
 		76E1A26821213EF3004066F5 /* PhotoLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1A26721213EF3004066F5 /* PhotoLibraryViewController.swift */; };
 		76E1A26A21213F7E004066F5 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E1A26921213F7E004066F5 /* ImageManager.swift */; };
@@ -50,8 +49,6 @@
 		76931C0C21211B1100C36167 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76931C0E21211B1100C36167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76931C1321211B1100C36167 /* KeepSafeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepSafeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		76931C1721211B1100C36167 /* KeepSafeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepSafeTests.swift; sourceTree = "<group>"; };
-		76931C1921211B1100C36167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76931C22212120B600C36167 /* PINEntryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINEntryManager.swift; sourceTree = "<group>"; };
 		76E1A26721213EF3004066F5 /* PhotoLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryViewController.swift; sourceTree = "<group>"; };
 		76E1A26921213F7E004066F5 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
@@ -103,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				76931C0121211B1000C36167 /* KeepSafe */,
-				76931C1621211B1100C36167 /* KeepSafeTests */,
 				76931C0021211B1000C36167 /* Products */,
 				8634653968A918508DBA7C1E /* Pods */,
 				1FB06B7B36E312C2A93D9B82 /* Frameworks */,
@@ -132,15 +128,6 @@
 				76931C0E21211B1100C36167 /* Info.plist */,
 			);
 			path = KeepSafe;
-			sourceTree = "<group>";
-		};
-		76931C1621211B1100C36167 /* KeepSafeTests */ = {
-			isa = PBXGroup;
-			children = (
-				76931C1721211B1100C36167 /* KeepSafeTests.swift */,
-				76931C1921211B1100C36167 /* Info.plist */,
-			);
-			path = KeepSafeTests;
 			sourceTree = "<group>";
 		};
 		76931C24212121CD00C36167 /* Data */ = {
@@ -410,7 +397,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76931C1821211B1100C36167 /* KeepSafeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -125,7 +125,7 @@ extension PhotoLibraryViewController: UICollectionViewDelegateFlowLayout, UIColl
 			collectionView.isPagingEnabled = false
 		}
 		
-		collectionView.setCollectionViewLayout(layout, animated: true) { _ in
+		collectionView.setCollectionViewLayout(layout, animated: false) { _ in
 			collectionView.reloadData()
 		}
 	}

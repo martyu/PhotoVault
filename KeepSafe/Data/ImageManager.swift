@@ -49,17 +49,12 @@ class ImageManager: NSObject {
 		if let image = imageCache.image(for: url) {
 			completion?(image, nil)
 		} else {
-//			if checkIfImageLoadOpIsInQueue(url: url) == false {
-				print("adding op \(operationQueue.operations.count) for \(url)")
-				operationQueue.addOperation(imageLoadOperation(url: url, completion: completion))
-//			} else {
-//				print("op already in queue \(url)")
-//			}
+			if let imageLoadOp = operationQueue.operations.first(where: { $0.name == url.absoluteString }) {
+				imageLoadOp.cancel()
+			}
+			print("adding op \(operationQueue.operations.count) for \(url)")
+			operationQueue.addOperation(imageLoadOperation(url: url, completion: completion))
 		}
-	}
-	
-	private func checkIfImageLoadOpIsInQueue(url: URL) -> Bool {
-		return operationQueue.operations.contains { $0.name == url.absoluteString }
 	}
 	
 	private func imageLoadOperation(url: URL, completion: ImageFetchCompletionHandler) -> Operation {
