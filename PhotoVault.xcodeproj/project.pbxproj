@@ -41,14 +41,14 @@
 		76259AFA212289D7004FE3EB /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		76259AFD2122A6A0004FE3EB /* ImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtensions.swift; sourceTree = "<group>"; };
 		76571361212218D6004C5DEA /* DisplaysSensitiveDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaysSensitiveDataProtocol.swift; sourceTree = "<group>"; };
-		76931BFF21211B1000C36167 /* KeepSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		76931BFF21211B1000C36167 /* PhotoVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76931C0221211B1000C36167 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76931C0421211B1000C36167 /* PINViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINViewController.swift; sourceTree = "<group>"; };
 		76931C0721211B1000C36167 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		76931C0921211B1100C36167 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76931C0C21211B1100C36167 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76931C0E21211B1100C36167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		76931C1321211B1100C36167 /* KeepSafeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepSafeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		76931C1321211B1100C36167 /* PhotoVaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoVaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76931C22212120B600C36167 /* PINEntryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINEntryManager.swift; sourceTree = "<group>"; };
 		76E1A26721213EF3004066F5 /* PhotoLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryViewController.swift; sourceTree = "<group>"; };
 		76E1A26921213F7E004066F5 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
@@ -109,8 +109,8 @@
 		76931C0021211B1000C36167 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				76931BFF21211B1000C36167 /* KeepSafe.app */,
-				76931C1321211B1100C36167 /* KeepSafeTests.xctest */,
+				76931BFF21211B1000C36167 /* PhotoVault.app */,
+				76931C1321211B1100C36167 /* PhotoVaultTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,9 +166,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		76931BFE21211B1000C36167 /* KeepSafe */ = {
+		76931BFE21211B1000C36167 /* PhotoVault */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76931C1C21211B1100C36167 /* Build configuration list for PBXNativeTarget "KeepSafe" */;
+			buildConfigurationList = 76931C1C21211B1100C36167 /* Build configuration list for PBXNativeTarget "PhotoVault" */;
 			buildPhases = (
 				B1F3A3F66052C4E6C0DE7DE7 /* [CP] Check Pods Manifest.lock */,
 				76931BFB21211B1000C36167 /* Sources */,
@@ -181,14 +181,14 @@
 			);
 			dependencies = (
 			);
-			name = KeepSafe;
+			name = PhotoVault;
 			productName = KeepSafe;
-			productReference = 76931BFF21211B1000C36167 /* KeepSafe.app */;
+			productReference = 76931BFF21211B1000C36167 /* PhotoVault.app */;
 			productType = "com.apple.product-type.application";
 		};
-		76931C1221211B1100C36167 /* KeepSafeTests */ = {
+		76931C1221211B1100C36167 /* PhotoVaultTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76931C1F21211B1100C36167 /* Build configuration list for PBXNativeTarget "KeepSafeTests" */;
+			buildConfigurationList = 76931C1F21211B1100C36167 /* Build configuration list for PBXNativeTarget "PhotoVaultTests" */;
 			buildPhases = (
 				AEC00FD62CF45C69BE9B19C2 /* [CP] Check Pods Manifest.lock */,
 				76931C0F21211B1100C36167 /* Sources */,
@@ -202,9 +202,9 @@
 			dependencies = (
 				76931C1521211B1100C36167 /* PBXTargetDependency */,
 			);
-			name = KeepSafeTests;
+			name = PhotoVaultTests;
 			productName = KeepSafeTests;
-			productReference = 76931C1321211B1100C36167 /* KeepSafeTests.xctest */;
+			productReference = 76931C1321211B1100C36167 /* PhotoVaultTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -226,7 +226,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 76931BFA21211B1000C36167 /* Build configuration list for PBXProject "KeepSafe" */;
+			buildConfigurationList = 76931BFA21211B1000C36167 /* Build configuration list for PBXProject "PhotoVault" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -239,8 +239,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				76931BFE21211B1000C36167 /* KeepSafe */,
-				76931C1221211B1100C36167 /* KeepSafeTests */,
+				76931BFE21211B1000C36167 /* PhotoVault */,
+				76931C1221211B1100C36167 /* PhotoVaultTests */,
 			);
 		};
 /* End PBXProject section */
@@ -405,7 +405,7 @@
 /* Begin PBXTargetDependency section */
 		76931C1521211B1100C36167 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 76931BFE21211B1000C36167 /* KeepSafe */;
+			target = 76931BFE21211B1000C36167 /* PhotoVault */;
 			targetProxy = 76931C1421211B1100C36167 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -600,7 +600,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeepSafe.app/KeepSafe";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoVault.app/PhotoVault";
 			};
 			name = Debug;
 		};
@@ -622,14 +622,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeepSafe.app/KeepSafe";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoVault.app/PhotoVault";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		76931BFA21211B1000C36167 /* Build configuration list for PBXProject "KeepSafe" */ = {
+		76931BFA21211B1000C36167 /* Build configuration list for PBXProject "PhotoVault" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76931C1A21211B1100C36167 /* Debug */,
@@ -638,7 +638,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76931C1C21211B1100C36167 /* Build configuration list for PBXNativeTarget "KeepSafe" */ = {
+		76931C1C21211B1100C36167 /* Build configuration list for PBXNativeTarget "PhotoVault" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76931C1D21211B1100C36167 /* Debug */,
@@ -647,7 +647,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76931C1F21211B1100C36167 /* Build configuration list for PBXNativeTarget "KeepSafeTests" */ = {
+		76931C1F21211B1100C36167 /* Build configuration list for PBXNativeTarget "PhotoVaultTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76931C2021211B1100C36167 /* Debug */,
